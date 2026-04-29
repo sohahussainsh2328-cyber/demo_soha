@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookVerse – Fictional & Non-Fictional Library</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#f4f4f4;
+}
+
+header{
+background:#333;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#ffcc00;
+}
+
+.banner{
+background:url("https://images.unsplash.com/photo-1512820790803-83ca734da794") center/cover;
+color:white;
+text-align:center;
+padding:120px 20px;
+}
+
+.banner h1{
+font-size:45px;
+}
+
+.container{
+width:90%;
+margin:auto;
+padding:20px;
+}
+
+.search-box{
+text-align:center;
+margin-bottom:20px;
+}
+
+.search-box input{
+padding:10px;
+width:300px;
+font-size:16px;
+}
+
+.books{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.book-card{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+.book-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.book-card h3{
+margin:10px 0 5px;
+}
+
+.book-card p{
+font-size:14px;
+color:#555;
+}
+
+section{
+margin-top:40px;
+}
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+@media(max-width:600px){
+.banner h1{
+font-size:28px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>📚 BookVerse</h2>
+<nav>
+<a href="#home">Home</a>
+<a href="#fiction">Fiction</a>
+<a href="#nonfiction">Non-Fiction</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section id="home" class="banner">
+<h1>BookVerse – Discover the World of Books</h1>
+<p>Explore amazing fictional and non-fictional books from famous authors around the world.</p>
+</section>
+
+<div class="container">
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search books...">
+</div>
+
+<section id="fiction">
+<h2>Fiction Books</h2>
+<div class="books" id="fictionBooks"></div>
+</section>
+
+<section id="nonfiction">
+<h2>Non-Fiction Books</h2>
+<div class="books" id="nonfictionBooks"></div>
+</section>
+
+<section id="about">
+<h2>About</h2>
+<p>
+Reading books improves knowledge, imagination, and creativity.
+Fiction books take us into magical worlds, while non-fiction books teach
+real-life lessons, history, science, and personal development.
+BookVerse helps readers explore great books from both categories.
+</p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: bookverse@gmail.com</p>
+<p>Phone: +91 9999999999</p>
+</section>
+
+</div>
+
+<footer>
+<p>© 2026 BookVerse | Follow us on Instagram • Facebook • Twitter</p>
+</footer>
+
+<script>
+
+const fiction = [
+["Harry Potter and the Sorcerer's Stone","J.K. Rowling"],
+["Harry Potter and the Chamber of Secrets","J.K. Rowling"],
+["The Lord of the Rings","J.R.R. Tolkien"],
+["The Hobbit","J.R.R. Tolkien"],
+["The Alchemist","Paulo Coelho"],
+["The Da Vinci Code","Dan Brown"],
+["Angels and Demons","Dan Brown"],
+["The Hunger Games","Suzanne Collins"],
+["Catching Fire","Suzanne Collins"],
+["Mockingjay","Suzanne Collins"],
+["The Fault in Our Stars","John Green"],
+["Looking for Alaska","John Green"],
+["Pride and Prejudice","Jane Austen"],
+["Jane Eyre","Charlotte Brontë"],
+["Wuthering Heights","Emily Brontë"],
+["Great Expectations","Charles Dickens"],
+["Oliver Twist","Charles Dickens"],
+["To Kill a Mockingbird","Harper Lee"],
+["The Kite Runner","Khaled Hosseini"],
+["A Thousand Splendid Suns","Khaled Hosseini"],
+["Life of Pi","Yann Martel"],
+["The Chronicles of Narnia","C.S. Lewis"],
+["Percy Jackson and the Lightning Thief","Rick Riordan"],
+["The Maze Runner","James Dashner"],
+["Divergent","Veronica Roth"],
+["The Book Thief","Markus Zusak"],
+["Dracula","Bram Stoker"],
+["Frankenstein","Mary Shelley"],
+["The Picture of Dorian Gray","Oscar Wilde"],
+["The Great Gatsby","F. Scott Fitzgerald"]
+];
+
+const nonfiction = [
+["Sapiens","Yuval Noah Harari"],
+["Homo Deus","Yuval Noah Harari"],
+["Atomic Habits","James Clear"],
+["The Power of Habit","Charles Duhigg"],
+["Rich Dad Poor Dad","Robert Kiyosaki"],
+["Think and Grow Rich","Napoleon Hill"],
+["The 7 Habits of Highly Effective People","Stephen Covey"],
+["How to Win Friends and Influence People","Dale Carnegie"],
+["The Psychology of Money","Morgan Housel"],
+["Deep Work","Cal Newport"],
+["Start With Why","Simon Sinek"],
+["Outliers","Malcolm Gladwell"],
+["Blink","Malcolm Gladwell"],
+["Educated","Tara Westover"],
+["Becoming","Michelle Obama"],
+["Elon Musk","Walter Isaacson"],
+["Steve Jobs","Walter Isaacson"],
+["Wings of Fire","A.P.J. Abdul Kalam"],
+["Ignited Minds","A.P.J. Abdul Kalam"],
+["India 2020","A.P.J. Abdul Kalam"],
+["The Diary of a Young Girl","Anne Frank"],
+["Quiet","Susan Cain"],
+["Thinking Fast and Slow","Daniel Kahneman"],
+["Man's Search for Meaning","Viktor Frankl"],
+["The Subtle Art of Not Giving a F*ck","Mark Manson"],
+["Can't Hurt Me","David Goggins"],
+["Shoe Dog","Phil Knight"],
+["The Lean Startup","Eric Ries"],
+["Good to Great","Jim Collins"],
+["The Intelligent Investor","Benjamin Graham"]
+];
+
+function displayBooks(list, container){
+const div=document.getElementById(container);
+
+list.forEach(book=>{
+div.innerHTML+=`
+<div class="book-card">
+<img src="https://picsum.photos/200/300?random=${Math.random()}">
+<h3>${book[0]}</h3>
+<p><b>Author:</b> ${book[1]}</p>
+<p>A popular book worth exploring for readers.</p>
+</div>`;
+});
+}
+
+displayBooks(fiction,"fictionBooks");
+displayBooks(nonfiction,"nonfictionBooks");
+
+document.getElementById("search").addEventListener("keyup",function(){
+let value=this.value.toLowerCase();
+let cards=document.querySelectorAll(".book-card");
+
+cards.forEach(card=>{
+card.style.display=card.innerText.toLowerCase().includes(value) ? "block":"none";
+});
+});
+
+</script>
+
+</body>
+</html>
